@@ -1,5 +1,6 @@
 # Introduction to Cyber and Information Security Technology
 This repository contains an overview as well as the work I conducted for the IMT4113 course. 
+- ADD TASKS AND CODE
 
 ## Course content
 Bases of Crypto;
