@@ -1,5 +1,5 @@
 # Quality Check for Changed Password
-
+The following is the task description for the assignment.
 ## Assumptions
 - Let your old password is x
 - Length of x is 8 characters
