@@ -1,5 +1,5 @@
 # Network Security
-This repository contains my work conducted for this course.
+This repository contains my work conducted for this course. 51% of the grade was based on an essay while the rest was based on an exam.
 ## Course content
 - Network and Network Security Models
 - Core Network Protocols
