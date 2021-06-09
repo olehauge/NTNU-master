@@ -13,23 +13,23 @@ Introduction to Critical Infrastructure Security
 
 ## Learning outcome
 ### Knowledge:
--The candidate will have a thorough knowledge in the core concepts of cyber and information security technologies
--The candidate possesses thorough knowledge in the primitives of cryptology
--The candidate possesses knowledge about theory and scientific methods relevant to cryptology
--The candidate possesses basic knowledge in the theory and application of network security
--The candidate has thorough knowledge in the theory and methods in authentication and identification as well as general access control mechanisms
--The candidate will possess knowledge in the area of vulnerabilities and attack mechanisms and methods against cyber and information security systems
--The candidate possesses basic knowledge about integrated system security
+- The candidate will have a thorough knowledge in the core concepts of cyber and information security technologies
+- The candidate possesses thorough knowledge in the primitives of cryptology
+- The candidate possesses knowledge about theory and scientific methods relevant to cryptology
+- The candidate possesses basic knowledge in the theory and application of network security
+- The candidate has thorough knowledge in the theory and methods in authentication and identification as well as general access control mechanisms
+- The candidate will possess knowledge in the area of vulnerabilities and attack mechanisms and methods against cyber and information security systems
+- The candidate possesses basic knowledge about integrated system security
 
 ### Skills:
--The candidate is capable of finding and performing critical analysis of various literature sources and applying them in structuring and formulating scientific reasoning in any of the topics of this course
--The candidate is capable of analyzing existing theories, methods, and interpretations in any of the fields in this course, and work independently on solving theoretical and practical problems.
--The candidate can plan and conduct a limited guided research exercise based on primary literature
+- The candidate is capable of finding and performing critical analysis of various literature sources and applying them in structuring and formulating scientific reasoning in any of the topics of this course
+- The candidate is capable of analyzing existing theories, methods, and interpretations in any of the fields in this course, and work independently on solving theoretical and practical problems.
+- The candidate can plan and conduct a limited guided research exercise based on primary literature
 
 ### General competence:
--The candidate is capable of independent working and are familiar with core concepts and problems in the area of cyber and information security technology
--The candidate is capable of discussing issues in the field of cyber and information security technology with specialists, decision makers and a general audience
--The candidate is capable to translate the concepts and ideas of cyber and information security technology to other fields, both inside and outside of general information security
--The candidate is able to identify advanced information security technology related problems and to contribute with approaches to solve these
+- The candidate is capable of independent working and are familiar with core concepts and problems in the area of cyber and information security technology
+- The candidate is capable of discussing issues in the field of cyber and information security technology with specialists, decision makers and a general audience
+- The candidate is capable to translate the concepts and ideas of cyber and information security technology to other fields, both inside and outside of general information security
+- The candidate is able to identify advanced information security technology related problems and to contribute with approaches to solve these
 
 See [IMT4113] at NTNU(https://www.ntnu.edu/studies/courses/IMT4113/2020#tab=omEmnet) for more.
