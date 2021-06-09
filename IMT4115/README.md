@@ -1,8 +1,8 @@
 # Introduction to Information Security Management
 This repository covers my work conducted in the IMT4115 course.
-- SOHO case study
-- Term paper
-- Norwegian Cyber Range table top exercise
+- SOHO case study (A)
+- Term paper (A)
+- Norwegian Cyber Range table top exercise (10/10)
 ## Course content
 - Introduction to System Thinking and Scientific Management
 - Cultural, Organization and Behavior theories  used information security management  organization.
