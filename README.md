@@ -1,6 +1,11 @@
 # NTNU-master
 This repository contains the work conducted during my master of information security (MIS) at NTNU, where I focus on the cyber and information security technology track.
-
+## Courses
+- IMT4113: Introduction to Information Security Management
+- IMT4115: Introduction to Cyber and Information Security Technology
+- IMT4125: Network Security
+- IMT4126: Biometrics
+- more are comming...
 ## General competencies
 After successfully completing the MIS program, the students possess the following knowledge, skills and general competences:
 
