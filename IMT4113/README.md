@@ -1,9 +1,9 @@
 # Introduction to Cyber and Information Security Technology
 This repository contains an overview as well as the work I conducted for the IMT4113 course. 
-- Assignment 1: Cryptology
-- Assignment 2: Authentication
-- Assignment 3: Network security
-- Assignment 4: System security
+- Assignment 1: Cryptology (10/10)
+- Assignment 2: Authentication (10/10)
+- Assignment 3: Network security (10/10)
+- Assignment 4: System security (8/10)
 
 ## Course content
 Bases of Crypto;
