@@ -16,3 +16,5 @@ conditions, the sending of keys be delayed.
 - Report on the performance of user authentication or identification based on SSH packets timing.
 ## Starting Reading and other Material
 - [Flucke, T. J.: Identification of Users via SSH Timing Attack, MSc thesis, 2020](https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=3587&context=theses)
+
+''NB!'' All collected data is anonymized. 
