@@ -1,11 +1,34 @@
 # NTNU-master
 This repository contains the work conducted during my master of information security (MIS) at NTNU, where I focus on the cyber and information security technology track.
 ## Courses
-- IMT4113: Introduction to Information Security Management (B)
-- IMT4115: Introduction to Cyber and Information Security Technology (B)
-- IMT4125: Network Security (TBD)
-- IMT4126: Biometrics (B)
-- more are comming...
+### Autumn 2020
+- [X] IMT4113: Introduction to Information Security Management (B)
+- [X] IMT4115: Introduction to Cyber and Information Security Technology (B)
+
+### Spring 2021
+- [X] IMT4125: Network Security (TBD)
+- [X] IMT4126: Biometrics (B)
+
+### Autumn 2021
+- [ ] System Security
+- [ ] Scientific Methodology
+- [ ] Digital Forensics
+
+### Spring 2022
+- [ ] Cryptology
+- [ ] Reverse Engineering
+
+### Autmun 2022
+- [ ] Critical Infrastructure Security
+- [ ] Etisk hacking
+
+### Spring 2023
+- [ ] Research Project Planning
+- [ ] Cyber Tactics
+
+### Autumn 2023 - Spring 2024
+- [ ] Master's Thesis
+
 ## General competencies
 After successfully completing the MIS program, the students possess the following knowledge, skills and general competences:
 
