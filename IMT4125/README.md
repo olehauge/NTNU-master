@@ -1,6 +1,6 @@
 # Network Security
 This repository contains my work conducted for this course. 51% of the grade was based on an essay where I focused on how Bluetooth might be used as a tool to gather intelligence.
-- Bluetooth_for_intelligence_gathering (TBD)
+- Bluetooth_for_intelligence_gathering (B)
 ## Course content
 - Network and Network Security Models
 - Core Network Protocols
