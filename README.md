@@ -6,7 +6,7 @@ This repository contains the work conducted during my master of information secu
 - [X] IMT4115: Introduction to Cyber and Information Security Technology (B)
 
 ### Spring 2021
-- [X] IMT4125: Network Security (TBD)
+- [X] IMT4125: Network Security (B)
 - [X] IMT4126: Biometrics (B)
 
 ### Autumn 2021
