@@ -32,6 +32,7 @@ This repository contains the work conducted during my master of information secu
 
 ### Autumn 2023 - Spring 2024
 - [ ] Master's Thesis
+- [ ] IMT4213: Cyber Intelligence
 
 ## General competencies
 After successfully completing the MIS program, the students possess the following knowledge, skills and general competences:
