@@ -28,6 +28,7 @@ This repository contains the work conducted during my master of information secu
 ### Spring 2023
 - [ ] Research Project Planning
 - [ ] Cyber Tactics
+- [ ] Security Management Metrics 
 
 ### Autumn 2023 - Spring 2024
 - [ ] Master's Thesis
