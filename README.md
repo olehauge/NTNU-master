@@ -21,7 +21,9 @@ This repository contains the work conducted during my master of information secu
 
 ### Autmun 2022
 - [ ] Critical Infrastructure Security
-- [ ] Etisk hacking
+- [ ] Digital Economy 
+- [ ] Introduction to Data Privacy
+- [ ] (Etisk hacking)
 
 ### Spring 2023
 - [ ] Research Project Planning
