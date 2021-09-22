@@ -1,4 +1,4 @@
-# User Identification based on SSH packets (SSH) (pb)
+# User Identification based on SSH packets (SSH)
 ## Background
 In interactive mode will SSH send an IP package after every keystroke to
 the remote host. This will reveal timing information on the typing pattern
