@@ -10,9 +10,9 @@ This repository contains the work conducted during my master of information secu
 - [X] IMT4126: Biometrics (B)
 
 ### Autumn 2021
-- [ ] System Security (TBD)
-- [ ] Scientific Methodology (TBD)
-- [ ] Digital Forensics (TBD)
+- [ ] IMT4123: System Security (TBD)
+- [ ] IMT4110: Scientific Methodology (TBD)
+- [ ] IMT4114: Digital Forensics (TBD)
 
 ### Spring 2022
 - [ ] Cryptology
