@@ -17,6 +17,7 @@ This repository contains the work conducted during my master of information secu
 ### Spring 2022
 - [ ] Cryptology
 - [ ] Reverse Engineering
+- [ ] Risk Management for Information Security
 
 ### Autmun 2022
 - [ ] Critical Infrastructure Security
