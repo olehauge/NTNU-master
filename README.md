@@ -12,27 +12,28 @@ This repository contains the work conducted during my master of information secu
 ### Autumn 2021 (22,5 stp)
 - [ ] IMT4123: System Security (TBD)
 - [ ] IMT4110: Scientific Methodology (TBD)
-- [ ] IMT4114: Digital Forensics (TBD)
+- [ ] IMT4114: Introduction to Digital Forensics (TBD)
 
 ### Spring 2022 (22,5 stp)
-- [ ] Cryptology
-- [ ] Reverse Engineering
-- [ ] Risk Management for Information Security
+- [ ] IMT4124: Cryptology
+- [ ] IMT4116: Reverse Engineering and Malware Analysis
+- [ ] IMT4129: Risk Management for Information Security
 
 ### Autmun 2022 (22,5 stp)
-- [ ] Critical Infrastructure Security
-- [ ] Digital Economy 
-- [ ] Introduction to Data Privacy
+- [ ] IMT4203: Critical Infrastructure - Security
+- [ ] TTM4165: Digital Economy 
+- [ ] IMT4217: Introduction to Data Privacy
 - [ ] (Etisk hacking)
 
 ### Spring 2023 (22,5 stp)
-- [ ] Research Project Planning
-- [ ] Cyber Tactics
-- [ ] Security Management Metrics 
+- [ ] IMT4205: Research Project Planning
+- [ ] IMT4213: Cyber Tactics
+- [ ] IMT4127: Security Management Metrics 
 
 ### Autumn 2023 - Spring 2024 (37,5 stp)
-- [ ] Master's Thesis
-- [ ] IMT4213: Cyber Intelligence
+- [ ] IMT4214: Cyber Intelligence
+- [ ] MIS4900: Master's Thesis
+
 
 Total stp: 157,5 stp | norm: 120 stp
 
