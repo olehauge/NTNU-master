@@ -23,7 +23,6 @@ This repository contains the work conducted during my master of information secu
 - [ ] IMT4203: Critical Infrastructure - Security
 - [ ] TTM4165: Digital Economy 
 - [ ] IMT4217: Introduction to Data Privacy
-- [ ] (Etisk hacking)
 
 ### Spring 2023 (22,5 stp)
 - [ ] IMT4205: Research Project Planning
