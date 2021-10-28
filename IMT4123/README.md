@@ -7,7 +7,7 @@ Downloaded and ran ```sunxacml``` with the provided test data. Had to set the ``
 java -cp ../lib/sunxacml.jar:../lib/samples.jar src/SimplePDP.java request/sensitive.xml policy/*.xml
 ```
 
-Then I contiued testing with the files supplied with the assignment and got the following results:
+Then I contiued testing with the files supplied with the assignment and got the following results.
 
 **Testing Request1.xml against Policy1.xml:**
 ```
