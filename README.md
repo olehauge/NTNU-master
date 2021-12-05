@@ -6,12 +6,13 @@ This repository contains the work conducted during my master of information secu
 - [X] IMT4115: Introduction to Cyber and Information Security Technology (B)
 
 ### Spring 2021 (15 stp)
-- [X] IMT4125: Network Security (B)
 - [X] IMT4126: Biometrics (B)
+- [X] IMT4125: Network Security (B)
+
 
 ### Autumn 2021 (22,5 stp)
 - [ ] IMT4123: System Security (TBD)
-- [ ] IMT4110: Scientific Methodology (TBD)
+- [X] IMT4110: Scientific Methodology (TBD)
 - [ ] IMT4114: Introduction to Digital Forensics (TBD)
 
 ### Spring 2022 (22,5 stp)
@@ -20,13 +21,13 @@ This repository contains the work conducted during my master of information secu
 - [ ] IMT4129: Risk Management for Information Security
 
 ### Autmun 2022 (22,5 stp)
-- [ ] IMT4203: Critical Infrastructure - Security
 - [ ] TTM4165: Digital Economy 
 - [ ] IMT4217: Introduction to Data Privacy
+- [ ] IMT4203: Critical Infrastructure - Security
 
 ### Spring 2023 (22,5 stp)
-- [ ] IMT4205: Research Project Planning
 - [ ] IMT4213: Cyber Tactics
+- [ ] IMT4205: Research Project Planning
 - [ ] IMT4127: Security Management Metrics 
 
 ### Autumn 2023 - Spring 2024 (37,5 stp)
