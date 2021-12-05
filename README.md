@@ -1,5 +1,5 @@
 # NTNU-master
-This repository contains the work conducted during my master of information security (MIS) at NTNU, where I focus on the cyber and information security technology and management tracks.
+This repository contains the work conducted during my master of information security (MIS) at NTNU, where I focus on the cinformation security technology and management tracks.
 ## Courses
 ### Autumn 2020 (15 stp)
 - [X] IMT4113: Introduction to Information Security Management (B)
