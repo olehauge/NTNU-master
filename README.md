@@ -13,7 +13,7 @@ This repository contains the work conducted during my master of information secu
 ### Autumn 2021 (22,5 stp)
 - [X] IMT4123: System Security (TBD)
 - [X] IMT4110: Scientific Methodology (TBD)
-- [ ] IMT4114: Introduction to Digital Forensics (TBD)
+- [X] IMT4114: Introduction to Digital Forensics (TBD)
 
 ### Spring 2022 (22,5 stp)
 - [ ] IMT4124: Cryptology
