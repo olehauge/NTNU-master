@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Policy xmlns="urn:oasis:names:tc:xacml:1.0:policy"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:oasis:names:tc:xacml:1.0:policy
+        cs-xacml-schema-policy-01.xsd"
+        PolicyId="urn:oasis:names:tc:xacml:1.0:conformance-test:CWP:policy"
+        RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:permit-overrides">
+    <Description>
+        Chinese Wall implementation based on ABAC.
+        This implementation assumes the following:
+        1. There is a function in place which updates the user history (what files has been accessed).
+        2. The subject are a valid user of the system.
+        3. All "invalid" inputs result in a "Deny" decision to ensure the robustness of the policy, and adding security
+           in that an attacker cannot get confirmation on valid or invalid request patterns. Thus making bruteforcing
+           harder.
+        4. The following design:
+
+        S -+- COI1 -+- CD1 - Object1
+           |        |
+           |        +- CD2 - Object2
+           |
+           +- COI2 --- CD3 - Object3
+
+    </Description>
+    <Target>
+        <Subjects>
+            <AnySubject/>
+        </Subjects>
+        <Resources>
+            <AnyResource/>
+        </Resources>
+        <Actions>
+            <AnyAction/>
+        </Actions>
+    </Target>
+    <!-- COI1CD1 & COI2CD3: Access is granted to an object if it's in the same CD as an object already accessed by the subject,
+         or it belongs to a different COI class. -->
+    <Rule RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:CWP:rule1"
+          Effect="Permit">
+        <Description>
+            Access is granted to an object if it's in the same CD as an object already accessed by the subject
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <!-- Subject has not accessed objects from any COIs CDs before -->
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">None</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+                <Subject>
+                    <!-- Subject has only accessed objects from COI1s CD1 before -->
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">COI1-CD1</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+                <!-- Subject has only accessed objects from COI2s CD3 before -->
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">COI2-CD3</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">object1</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">COI1</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-COI-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">CD1</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-CD-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+                 <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">object3</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">COI2</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-COI-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">CD3</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-CD-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- COI1CD2 & COI2CD3: Access is granted to an object if it's in the same CD as an object already accessed by the subject,
+         or it belongs to a different COI class. -->
+    <Rule RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:CWP:rule1"
+          Effect="Permit">
+        <Description>
+            Access is granted to an object if it's in the same CD as an object already accessed by the subject
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <!-- Subject has not accessed objects from any COIs CDs before -->
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">None</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+                <Subject>
+                    <!-- Subject has only accessed objects from COI1s CD2 before -->
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">COI1-CD2</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+                <!-- Subject has only accessed objects from COI2s CD3 before -->
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">COI2-CD3</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-history"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">object2</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">COI1</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-COI-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">CD2</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-CD-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+                 <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">object3</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">COI2</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-COI-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">CD3</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-CD-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- Deny what is not applicable i.e not covered by the policy-->
+    <Rule RuleId="urn:xacml:2.0:interop:example:ruleid:deny" Effect="Deny">
+        <Description>
+          This Policy is permit-overrides, therefore if a rule above evaluated to
+          Permit this Rule will be skipped. However, if no Permit was obtained, this
+          Rule evaluates to true and so produces a Deny. Therefore evaluation of this
+          Policy results in either a Permit or Deny which is the intended effect.
+        </Description>
+        <Target/>
+    </Rule>
+</Policy>

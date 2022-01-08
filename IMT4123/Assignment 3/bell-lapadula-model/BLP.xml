@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Policy
+      xmlns="urn:oasis:names:tc:xacml:1.0:policy"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="urn:oasis:names:tc:xacml:1.0:policy
+        cs-xacml-schema-policy-01.xsd"
+      PolicyId="urn:oasis:names:tc:xacml:1.0:conformance-test:BLP:policy"
+      RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:permit-overrides">
+    <Description>
+        Bell-Lapadula policy implementing the simple confidentiality and star confidentiality rule.
+        This implementation assumes the following:
+        1. There are two levels: UNCLASSIFIED and CLASSIFIED
+        2. There are two documents, one at each level: unclassified.pdf and classified.pdf
+        3. There are no compartments of documents on the levels (for the simplicity of this test implementation)
+        3. Subjects are valid users of the system
+        4. All "invalid" inputs result in a "Deny" decision to ensure the robustness of the policy, and adding security
+           in that an attacker cannot get confirmation on valid or invalid request patterns. Thus making bruteforcing
+           harder.
+        5. The following design:
+
+        Level 1: CLASSIFIED             classified.pdf
+
+        Level 0: UNCLASSIFIED           unclassified.pdf
+
+    </Description>
+    <Target>
+        <Subjects>
+            <AnySubject/>
+        </Subjects>
+        <Resources>
+            <AnyResource/>
+        </Resources>
+        <Actions>
+            <AnyAction/>
+        </Actions>
+    </Target>
+    <!-- A subject can read or write on the same classification level as he/she is cleared for : classified-->
+    <Rule
+          RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:BLP:rule1"
+          Effect="Permit">
+        <Description>
+            Subject can read or write the classified document
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">classified</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-clearance"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">classified.pdf</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">classified</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-classification"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- A user can read or write on the same classification level as he is cleared for : unclassified-->
+    <Rule
+          RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:BLP:rule2"
+          Effect="Permit">
+        <Description>
+            Subject can read or write the unclassified document
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">unclassified</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-clearance"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">unclassified.pdf</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">unclassified</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-classification"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- No read up : from unclassified to classified-->
+    <Rule
+          RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:BLP:rule3"
+          Effect="Permit">
+        <Description>
+            Subject cannot read a classified document if he is cleared for unclassified, but he can write.
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">unclassified</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-clearance"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">classified.pdf</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">classified</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-classification"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">write</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- No write down : classified to unclassified -->
+    <Rule
+          RuleId="urn:oasis:names:tc:xacml:1.0:conformance-test:BLP:rule4"
+          Effect="Permit">
+        <Description>
+            Subject cannot write to a unclassified document if he is cleared for classified,
+            but he can read.
+        </Description>
+        <Target>
+            <Subjects>
+                <Subject>
+                    <SubjectMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">classified</AttributeValue>
+                        <SubjectAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-clearance"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </SubjectMatch>
+                </Subject>
+            </Subjects>
+            <Resources>
+                <Resource>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">unclassified.pdf</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                    <ResourceMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI">unclassified</AttributeValue>
+                        <ResourceAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-classification"
+                              DataType="http://www.w3.org/2001/XMLSchema#anyURI"/>
+                    </ResourceMatch>
+                </Resource>
+            </Resources>
+            <Actions>
+                <Action>
+                    <ActionMatch
+                          MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <AttributeValue
+                              DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                        <ActionAttributeDesignator
+                              AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
+                              DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                    </ActionMatch>
+                </Action>
+            </Actions>
+        </Target>
+    </Rule>
+    <!-- Deny what is not applicable -->
+    <Rule RuleId="urn:xacml:2.0:interop:example:ruleid:deny" Effect="Deny">
+        <Description>
+          This Policy is permit-overrides, therefore if a rule above evaluated to
+          Permit this Rule will be skipped. However, if no Permit was obtained, this
+          Rule evaluates to true and so produces a Deny. Therefore evaluation of this
+          Policy results in either a Permit or Deny which is the intended effect.
+        </Description>
+        <Target/>
+    </Rule>
+</Policy>
