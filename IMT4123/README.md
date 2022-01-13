@@ -1,6 +1,6 @@
 # System Security
 
-This repository covers my work conducted in the IMT4115 course.
+This repository covers my work conducted in the IMT4123 course.
 - Assignment 1
 - Assignment 2
 - Assignment 3
