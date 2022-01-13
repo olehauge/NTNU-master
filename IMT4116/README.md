@@ -1,5 +1,5 @@
 # Reverse Engineering and Malware Analysis
-This repository covers my work conducted in the IMT4123 course.
+This repository covers my work conducted in the IMT4116 course.
 - Exercise 1
 - Exercise 2
 
