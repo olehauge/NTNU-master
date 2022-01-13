@@ -1,7 +1,8 @@
 # Scientific Methodology and Communication
 This repository covers my work conducted in the IMT4110 course.
-- 
-
+- Assignment 1
+- Assignment 2
+- Assignment 3
 
 ## Course content
 - Introduction to the theory of science 
