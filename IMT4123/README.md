@@ -1,49 +1,31 @@
-# Assignment 3 - XACML implementation
+# System Security
 
+This repository covers my work conducted in the IMT4115 course.
+- Assignment 1
+- Assignment 2
+- Assignment 3
 
-## Testing
-Downloaded and ran ```sunxacml``` with the provided test data. Had to set the ```CLASSPATH``` variable in the command line while running the application in order to make it run correctly. It was run from the ```sunxacml-1.2/sample``` directory.
-```
-java -cp ../lib/sunxacml.jar:../lib/samples.jar src/SimplePDP.java request/sensitive.xml policy/*.xml
-```
+## Course content
+-Access control and information flow (formal models and systems) -System security analysis (attack-defense trees and covert channels) -Secure software development (security assurance and evaluation) -Vulnerabilities and attack patterns (analysis and detection) -Operating systems security (hardware protection, privileges,  I/O protection, virtualization)
 
-Then I continued testing with the files supplied with the assignment and got the following results to see if it matched what I expected from reading the files myself.
+## Learning outcome
+Candidates who have successfully completed this course, should have achieved the following total learning outcome
 
-**Testing Request1.xml against Policy1.xml:**
-```
-java -cp ../lib/sunxacml.jar:../lib/samples.jar src/SimplePDP.java policy-request/Request1.xml policy-request/Policy1.xml 
-Note: src/SimplePDP.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-<Response>
-  <Result ResourceID="http://medico.com/record/patient/BartSimpson">
-    <Decision>Permit</Decision>
-    <Status>
-      <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-    </Status>
-  </Result>
-</Response>
-```
-**Testing request2.xml against policy2.xml:**
-```
-java -cp ../lib/sunxacml.jar:../lib/samples.jar src/SimplePDP.java policy-request/request2.xml policy-request/policy2.xml 
-Note: src/SimplePDP.java uses unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-Oct 28, 2021 8:50:57 AM com.sun.xacml.finder.AttributeFinder findAttribute
-INFO: Failed to resolve any values for urn:xacml:2.0:interop:example:resource:account-status
-<Response>
-  <Result ResourceID="CustomerAccount">
-    <Decision>Deny</Decision>
-    <Status>
-      <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-    </Status>
-    <Obligations>
-      <Obligation ObligationId="urn:xacml:2.0:interop:example:obligation:status-code" FulfillOn="Deny">
-      </Obligation>
-      <Obligation ObligationId="urn:xacml:2.0:interop:example:obligation:decision" FulfillOn="Deny">
-      </Obligation>
-      <Obligation ObligationId="urn:xacml:2.0:interop:example:obligation:status-message" FulfillOn="Deny">
-      </Obligation>
-    </Obligations>
-  </Result>
-</Response>
-```
+### Knowledge 
+- Candidates are expected to possess in-depth knowledge of formal modelling techniques for secure computer systems 
+- Candidates have advanced knowledge of common vulnerabilities, attack mechanisms, and methods against computer and information systems 
+- Candidates have thorough knowledge on the theory and methods underlying access control and information flow policies 
+- Candidates have thorough knowledge on security techniques and methods  applied in operating systems 
+- Candidates have thorough knowledge about secure software system assurance and evaluation
+
+### Skills 
+- Candidates are capable of applying relevant methods for security modelling and analysis of software applications and information systems. 
+- Candidates are capable of analysing, evaluating and enhancing the security of information systems independently by identifying potential threats and propose possible countermeasures
+
+### General Competence 
+- Candidates  can analyse relevant professional and research ethical problems related to securing information system and software. 
+- Candidates  are capable of applying their knowledge and skills in new fields, in order to carry out advanced tasks and projects. 
+- Candidates  can work independently and are familiar with terminology of the field of software and system security. 
+- Candidates can communicate about academic issues related to system and software security both with specialists and public audience. 
+- Candidates can contribute to innovation and innovation processes in information security.
+
