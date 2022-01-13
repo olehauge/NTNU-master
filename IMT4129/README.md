@@ -1,5 +1,5 @@
 # Risk Management for Information Security
-This repository covers my work conducted in the IMT4123 course.
+This repository covers my work conducted in the IMT4129 course.
 - Term paper
 
 ## Course content
