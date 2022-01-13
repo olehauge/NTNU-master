@@ -1,6 +1,7 @@
 # Introduction to Digital Forensics
 This repository covers my work conducted in the IMT4114 course.
-- 
+- Term paper (A)
+- Project plan
 
 ## Course content
 - Digital investigations, stakeholders and their roles 
