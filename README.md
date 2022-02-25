@@ -26,11 +26,12 @@ This repository contains the work conducted during my master of information secu
 - [ ] IMT4203: Critical Infrastructure - Security
 
 ### Spring 2023 (22,5 stp)
-- [ ] IMT4213: Cyber Tactics
+- [ ] XXXYYYY: Experts in Teamwork
 - [ ] IMT4205: Research Project Planning
 - [ ] IMT4127: Security Management Metrics 
 
-### Autumn 2023 - Spring 2024 (37,5 stp)
+### Autumn 2023 - Spring 2024 (45 stp)
+- [ ] IMT4213: Cyber Tactics
 - [ ] IMT4214: Cyber Intelligence
 - [ ] MIS4900: Master's Thesis
 
