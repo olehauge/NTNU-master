@@ -24,7 +24,7 @@ from sage.all import *
 #   3. r := o(r*phi(l))
 #   4. return w(l||r)
 #
-# The result is an S-Box for pi.*/
+# The result is an S-Box for pi.
 
 
 # Defining the finite field based on the LFSR polynomial: X^4+X^3+1
