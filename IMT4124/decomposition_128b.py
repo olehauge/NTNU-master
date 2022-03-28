@@ -32,14 +32,13 @@ X: int = GF(2).polynomial_ring().gen()
 F = GF(2 ** 4, name="a", modulus=X ** 4 + X ** 3 + 1)
 
 
-# 
-def field_multiplication(x, y) -> int:
+def field_multiplication(x:int, y:int) -> int:
     """
     Defining the field multiplication as seen in the decomposition (used twice)
     
-    :param 1: x is an integer value 
-    :param 2: y is an integer value 
-    :return: returns the result of the linear permutation. 
+    :param 1: x is an integer value representing a 4-bit nibble
+    :param 2: y is an integer value representing a 4-bit nibble
+    :return: returns the integer result of the field multiplication
     """
     return (F.fetch_int(x) * F.fetch_int(y)).integer_representation()
 
@@ -91,7 +90,10 @@ omega = Matrix(GF(2), 8, 8, [
 # Computing pi using the decomposition and the evaluation described by the authors
 pi: List[int] = []
 for l_II_r in range(256):
-    # The evaluation of pi(l||r) as described in the paper
+    """
+    The evaluation of pi(l||r) as described in the paper
+    
+    """
     l_II_r: int = linear_8_permutation(l_II_r, alpha)
     l, r = l_II_r >> 4, l_II_r & 0xf                                                                  # (l||r) := a(l||r)
     l: int = (r == 0) * nu_0[l] + (r != 0) * nu_1[field_multiplication(l, multiplicative_inv[r])]     # if r = 0 then l := v0(l), else l := v1(l*I(r))
