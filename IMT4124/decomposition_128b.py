@@ -45,8 +45,14 @@ phi: List[hex] = [0xb, 0x2, 0xb, 0x8, 0xc, 0x4, 0x1, 0xc, 0x6, 0x3, 0x5, 0x8, 0x
 sigma: List[hex] = [0xc, 0xd, 0x0, 0x4, 0x8, 0xb, 0xa, 0xe, 0x3, 0x9, 0x5, 0x2, 0xf, 0x1, 0x6, 0x7]
 
 
-# Defining the linear 8-bit functions/permutations (used for alpha and omega)
-def linear_8_permutation(x, matrix) -> int:
+# 
+def linear_8_permutation(x:int, matrix) -> int:
+    """
+    Defining the linear 8-bit function/permutation (used for alpha and omega)
+    x is an integer value from 0 to 255. 
+    matrix is the matrix value defined as alpha or omega. 
+    <return-desc>
+    """
     y = matrix * Matrix(GF(2), 8, 1, map(int, bin(x)[2:].zfill(8)))
     return int("".join(map(str, y.T[0][:8])), 2)
 
