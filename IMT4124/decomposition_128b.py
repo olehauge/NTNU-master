@@ -32,8 +32,15 @@ X: int = GF(2).polynomial_ring().gen()
 F = GF(2 ** 4, name="a", modulus=X ** 4 + X ** 3 + 1)
 
 
-# Defining the field multiplication as seen in the decomposition (used twice)
+# 
 def field_multiplication(x, y) -> int:
+    """
+    Defining the field multiplication as seen in the decomposition (used twice)
+    
+    :param 1: x is an integer value 
+    :param 2: y is an integer value 
+    :return: returns the result of the linear permutation. 
+    """
     return (F.fetch_int(x) * F.fetch_int(y)).integer_representation()
 
 
@@ -45,13 +52,13 @@ phi: List[hex] = [0xb, 0x2, 0xb, 0x8, 0xc, 0x4, 0x1, 0xc, 0x6, 0x3, 0x5, 0x8, 0x
 sigma: List[hex] = [0xc, 0xd, 0x0, 0x4, 0x8, 0xb, 0xa, 0xe, 0x3, 0x9, 0x5, 0x2, 0xf, 0x1, 0x6, 0x7]
 
 
-# 
 def linear_8_permutation(x:int, matrix) -> int:
     """
     Defining the linear 8-bit function/permutation (used for alpha and omega)
-    x is an integer value from 0 to 255. 
-    matrix is the matrix value defined as alpha or omega. 
-    <return-desc>
+    
+    :param 1: x is an integer value from 0 to 255. 
+    :param 2: matrix is the matrix value defined as alpha or omega. 
+    :return: returns the integer result of the linear permutation. 
     """
     y = matrix * Matrix(GF(2), 8, 1, map(int, bin(x)[2:].zfill(8)))
     return int("".join(map(str, y.T[0][:8])), 2)
