@@ -36,7 +36,7 @@ This repository contains the work conducted during my master of information secu
 - [ ] MIS4900: Master's Thesis
 
 
-Total stp: 157,5 stp | norm: 120 stp
+Total stp: 160 stp | norm: 120 stp
 
 ## General competencies
 After successfully completing the MIS program, the students possess the following knowledge, skills and general competences:
