@@ -408,6 +408,6 @@ def test_code(key_value: str, plain_text: str, cipher_text: str):
           'a = 1122334455667700ffeeddccbbaa9988')
 
  
-# Supply key value as string
+# Supply key value, plaintext value, and ciphertext value as string
 test_code('8899aabbccddeeff0011223344556677fedcba98765432100123456789abcdef', '1122334455667700ffeeddccbbaa9988',
           '7f679d90bebc24305a468d42b9d4edcd')
