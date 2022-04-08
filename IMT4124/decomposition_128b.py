@@ -123,9 +123,6 @@ pi_inverse: List[int] = [165, 45, 50, 143, 14, 48, 56, 192, 84, 230, 158, 57,
                          214, 32, 10, 8, 0, 76, 215, 116]
 
 
-#
-# 128-bits integer input and output
-#
 def substitution(a: int) -> int:
     """
     Defining the substitution function defined in RFC7801
