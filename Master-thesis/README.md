@@ -1,1 +1,2 @@
-https://carnegieendowment.org/2021/06/28/measuring-effects-of-influence-operations-key-findings-and-gaps-from-empirical-research-pub-84824
+# Mater Thesis NTNU - Influence/Interference Operations
+This repository will contain the work conducted during the writing of the master thesis at NTNU. 
