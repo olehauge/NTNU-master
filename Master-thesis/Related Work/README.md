@@ -12,6 +12,16 @@ This repository contains papers and links to related work in the field of influe
 
 [#PolyPod: Hva vet vi om utenlandske påvirkningsoperasjoner mot Norge?](https://shows.acast.com/polypod/episodes/polypod-hva-vet-vi-om-utenlandske-pavirkningsoperasjoner-mot)
 
+[Episode 34 - Eskil Grendahl Sivertsen om dagens informasjonsvasking, proxyaktører og propaganda](https://pod.space/veteranpodden)
+
+[Informasjonstilgang eller spredning av propaganda? Nå må plattformselskapene balansere mange hensyn samtidig](https://m24.no/bente-kalsnes-debatt-facebook/informasjonstilgang-eller-spredning-av-propaganda-na-ma-plattformselskapene-balansere-mange-hensyn-samtidig/458171)
+
+[Ekstraepisode: Psykologisk krigføring - med Eskild Grendahl Sivertsen](https://radio.nrk.no/podkast/popkorn_og_politikk/l_cc3a788d-9a18-43fc-ba78-8d9a18d3fceb)
+
+[Desinformasjon og manipulasjonsteknikker fra Russland](https://www.cw.no/ffi-podcast/podcast-desinformasjon-og-manipulasjon-fra-russland/1676007)
+
+[Hate Inc.](https://www.ark.no/boker/Matt-Taibbi-Hate-Inc-9781682194072)
+
 ## Links - Intelligence Gathering and Analysis 
 [Cyber Threat Intelligence Study Plan](https://klrgrz.medium.com/cyber-threat-intelligence-study-plan-c60484d319cb)
 
