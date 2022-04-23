@@ -12,6 +12,12 @@ This repository contains papers and links to related work in the field of influe
 
 [#PolyPod: Hva vet vi om utenlandske påvirkningsoperasjoner mot Norge?](https://shows.acast.com/polypod/episodes/polypod-hva-vet-vi-om-utenlandske-pavirkningsoperasjoner-mot)
 
+## Links - Intelligence Gathering and Analysis 
+[Cyber Threat Intelligence Study Plan](https://klrgrz.medium.com/cyber-threat-intelligence-study-plan-c60484d319cb)
+
+[Psychology of Intelligence Analysis](https://www.ialeia.org/docs/Psychology_of_Intelligence_Analysis.pdf)
+
+[Sherman Kent and the Profession of Intelligence Analysis](https://web.archive.org/web/20201102212401/https://www.cia.gov/library/kent-center-occasional-papers/pdf/OPNo5.pdf)
 
 ## Links - Data Collection
 [How to scrape Instagram posts, comments, and photos](https://blog.apify.com/scrape-instagram-posts-comments-and-more-21d05506aeb3/)
