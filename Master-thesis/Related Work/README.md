@@ -12,3 +12,15 @@ This repository contains papers and links to related work in the field of influe
 [How to scrape Instagram posts, comments, and photos](https://blog.apify.com/scrape-instagram-posts-comments-and-more-21d05506aeb3/)
 
 [Snapchat Story Downloader](https://github.com/nemec/snapchat-map-scraper)
+
+[TWINT - Twitter Intelligence Tool](https://github.com/twintproject/twint)
+
+## Links - Bellingcat Geofenced Search Display
+[Geofenced Searches on Twitter: A Case Study Detailing South Asia’s Covid Crisis](https://www.bellingcat.com/resources/2021/05/19/geofenced-searches-on-twitter-a-case-study-detailing-south-asias-covid-crisis/)
+
+[project code](https://bellingcat.github.io/twitter-geocode-searches/hexagonal-search-grid.html)
+
+[Comparing geotagged tweet volumes available with the Twitter Premium Search API, the Twitter Search API, and TWINT](https://bellingcat.github.io/twitter-geocode-searches/tweet-volume-comparison.html)
+
+[H3](https://h3geo.org/)
+
