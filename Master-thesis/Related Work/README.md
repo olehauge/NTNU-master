@@ -8,6 +8,11 @@ This repository contains papers and links to related work in the field of influe
 
 [Automatic Detection of Influential Actors in Disinformation Networks](https://arxiv.org/abs/2005.10879)
 
+[PRO-KREMLIN DISINFORMATION OUTLETS REFERENCED BY HUNDREDS OF WIKIPEDIA ARTICLES](https://euvsdisinfo.eu/pro-kremlin-disinformation-outlets-referenced-by-hundreds-of-wikipedia-articles/#)
+
+[#PolyPod: Hva vet vi om utenlandske påvirkningsoperasjoner mot Norge?](https://shows.acast.com/polypod/episodes/polypod-hva-vet-vi-om-utenlandske-pavirkningsoperasjoner-mot)
+
+
 ## Links - Data Collection
 [How to scrape Instagram posts, comments, and photos](https://blog.apify.com/scrape-instagram-posts-comments-and-more-21d05506aeb3/)
 
