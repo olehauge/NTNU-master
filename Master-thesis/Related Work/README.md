@@ -22,6 +22,8 @@ This repository contains papers and links to related work in the field of influe
 
 [Hate Inc.](https://www.ark.no/boker/Matt-Taibbi-Hate-Inc-9781682194072)
 
+[Tek Fog: An App With BJP Footprints for Cyber Troops to Automate Hate, Manipulate Trends](https://thewire.in/tekfog/en/1.html)
+ 
 ## Links - Intelligence Gathering and Analysis 
 [Cyber Threat Intelligence Study Plan](https://klrgrz.medium.com/cyber-threat-intelligence-study-plan-c60484d319cb)
 
