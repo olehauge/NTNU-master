@@ -35,3 +35,11 @@ This repository contains papers and links to related work in the field of influe
 
 [H3](https://h3geo.org/)
 
+## Links - Potential Software 
+[Kibana](https://www.elastic.co/elastic-stack?elektra=home&storm=stack)
+
+[Elasticsearch](https://www.elastic.co/elastic-stack?elektra=home&storm=stack)
+
+[Apache Lucene](https://lucene.apache.org/)
+
+[Neo4j](https://neo4j.com/cloud/neo4j-aura/?utm_program=emea-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=emea-search-auradb-free&utm_adgroup=auradb-free-keywords&utm_content=auradb-free-keywords&utm_term=neo4j&utm_placement=&utm_keyword=neo4j&utm_network=g&gclid=CjwKCAjwx46TBhBhEiwArA_DjDFJwntgEPrWLtNFN06RkuOawn1aWM22mrpIj74HQYM9lIhWrZ4b-xoCcaAQAvD_BwE)
