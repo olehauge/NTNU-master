@@ -31,6 +31,8 @@ This repository contains papers and links to related work in the field of influe
 
 [Sherman Kent and the Profession of Intelligence Analysis](https://web.archive.org/web/20201102212401/https://www.cia.gov/library/kent-center-occasional-papers/pdf/OPNo5.pdf)
 
+[Intelligence Analysis in the Digital Age](https://www.routledge.com/Intelligence-Analysis-in-the-Digital-Age/Stenslie-Haugom-Vaage/p/book/9780367766979)
+
 ## Links - Data Collection
 [How to scrape Instagram posts, comments, and photos](https://blog.apify.com/scrape-instagram-posts-comments-and-more-21d05506aeb3/)
 
