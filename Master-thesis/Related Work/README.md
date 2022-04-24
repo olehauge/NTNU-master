@@ -49,6 +49,13 @@ This repository contains papers and links to related work in the field of influe
 
 [H3](https://h3geo.org/)
 
+## Links - Cambridge Analytica Youtube
+[The Power of Big Data and Psychographics | 2016 Concordia Annual Summit](https://www.youtube.com/watch?v=n8Dd5aVXLCc&list=WL&index=50&ab_channel=Concordia)
+[Cambridge Analytica explains how the Trump campaign worked](https://www.youtube.com/watch?v=bB2BJjMNXpA&list=WL&index=49&t=1789s&ab_channel=d3con)
+
+## Links - Predict Psycological Traits
+[Predicting psychological traits from digital footprints – 47th St. Gallen Symposium](https://www.youtube.com/watch?v=eBbxajtb_CM&list=WL&index=47&t=198s&ab_channel=StGallenSymposium)
+
 ## Links - Potential Software 
 [Kibana](https://www.elastic.co/elastic-stack?elektra=home&storm=stack)
 
