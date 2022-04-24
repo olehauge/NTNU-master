@@ -51,6 +51,7 @@ This repository contains papers and links to related work in the field of influe
 
 ## Links - Cambridge Analytica Youtube
 [The Power of Big Data and Psychographics | 2016 Concordia Annual Summit](https://www.youtube.com/watch?v=n8Dd5aVXLCc&list=WL&index=50&ab_channel=Concordia)
+
 [Cambridge Analytica explains how the Trump campaign worked](https://www.youtube.com/watch?v=bB2BJjMNXpA&list=WL&index=49&t=1789s&ab_channel=d3con)
 
 ## Links - Predict Psycological Traits
