@@ -1,6 +1,6 @@
 # Cryptology
 This repository covers my work conducted in the IMT4124 course.
-- Term paper 
+- Term paper (TBD)
 
 ## Course content
 - Introduction - classical cryptography (Shift/Caesar cipher, Vigenere, Beaufort, Enigma, Vernam), basic information theory and unicity distance, security of classical ciphers. 
