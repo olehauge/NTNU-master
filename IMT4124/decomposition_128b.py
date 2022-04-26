@@ -4,7 +4,7 @@ from sage.all import *
 # GOST R 34.12-2015: Block Cipher "Kuznyechik"
 
 # Authors comment:
-# Run it as a Python3 Jupiter Notebook.
+# If you encounter import issues, try running it as a Python3 Jupiter Notebook or using SageMath 9.3 Notebook
 #
 # This program implements the decomposition of pi found in the "Reverse-Engineering the S-Box of Streebog, Kuznyechik
 # and STRIBObr1" paper by Alex Biryukov, Leo Perrin, and Aleksei Udovenko; and adds it to the original code for the
@@ -28,32 +28,38 @@ from sage.all import *
 
 
 # Defining the finite field based on the LFSR polynomial: X^4+X^3+1
-X: int = GF(2).polynomial_ring().gen()
-F = GF(2 ** 4, name="a", modulus=X ** 4 + X ** 3 + 1)
+gen_field: int = GF(2).polynomial_ring().gen()
+field = GF(2 ** 4, name="a", modulus=gen_field ** 4 + gen_field ** 3 + 1)
 
 
 # Defining the field multiplication as seen in the decomposition (used twice)
-def field_multiplication(x, y) -> int:
-    return (F.fetch_int(x) * F.fetch_int(y)).integer_representation()
+def field_multiplication(bits_nibble, non_linear_func) -> int:
+    """
+    Calculates a field multiplication and returns the value
+    :param bits_nibble: Takes an integer value representing the left/right or both sides as input
+    :param non_linear_func: Takes an integer value of a non-linear function as input (alpha/omega)
+    :return: Returns an integer value of the field multiplication
+    """
+    return (field.fetch_int(bits_nibble) * field.fetch_int(non_linear_func)).integer_representation()
 
 
 # Declaring the non-linear 4-bit functions identified by the authors
-multiplicative_inv: List[int] = [(F.fetch_int(x) ** 14).integer_representation() for x in range(0, 16)]
+multiplicative_inv: List[int] = [(field.fetch_int(x) ** 14).integer_representation() for x in range(0, 16)]
 nu_0: List[hex] = [0x2, 0x5, 0x3, 0xb, 0x6, 0x9, 0xe, 0xa, 0x0, 0x4, 0xf, 0x1, 0x8, 0xd, 0xc, 0x7]
 nu_1: List[hex] = [0x7, 0x6, 0xc, 0x9, 0x0, 0xf, 0x8, 0x1, 0x4, 0x5, 0xb, 0xe, 0xd, 0x2, 0x3, 0xa]
 phi: List[hex] = [0xb, 0x2, 0xb, 0x8, 0xc, 0x4, 0x1, 0xc, 0x6, 0x3, 0x5, 0x8, 0xe, 0x3, 0x6, 0xb]
 sigma: List[hex] = [0xc, 0xd, 0x0, 0x4, 0x8, 0xb, 0xa, 0xe, 0x3, 0x9, 0x5, 0x2, 0xf, 0x1, 0x6, 0x7]
 
 
-def linear_8_permutation(x, matrix) -> int:
+def linear_8_permutation(feistel_side, linear_permutation_8b) -> int:
     """
     Defining the linear 8-bit functions/permutations (used for alpha and omega)
-    :param x: Takes the 4 bit right and left nibbles
-    :param matrix: Takes alpha or omega as a matrix
+    :param feistel_side: Takes the 4 bit right and/or left nibbles
+    :param linear_permutation_8b: Takes alpha or omega as a matrix
     :return: Returns an integer value of the permutation
     """
-    y = matrix * Matrix(GF(2), 8, 1, map(int, bin(x)[2:].zfill(8)))
-    return int("".join(map(str, y.T[0][:8])), 2)
+    permutation_value = linear_permutation_8b * Matrix(GF(2), 8, 1, map(int, bin(feistel_side)[2:].zfill(8)))
+    return int("".join(map(str, permutation_value.T[0][:8])), 2)
 
 
 # Defining the matrix representation of the two linear permutations: alpha and omega
@@ -89,7 +95,7 @@ for l_II_r in range(256):
         if r = 0 then l := v0(l), else l := v1(l*I(r))
         r := o(r*phi(l))
         return w(l||r)
-    :param l_II_r: Takes an integer value between 0 and 255
+    :param l_II_r: Takes an integer value between 0 and 255, where l is the left side and r is the right side
     :return: Returns pi
     """
     l_II_r: int = linear_8_permutation(l_II_r, alpha)
@@ -123,52 +129,53 @@ pi_inverse: List[int] = [165, 45, 50, 143, 14, 48, 56, 192, 84, 230, 158, 57,
                          214, 32, 10, 8, 0, 76, 215, 116]
 
 
-def substitution(a: int) -> int:
+def substitution(xor_result: int) -> int:
     """
     Defining the substitution function defined in RFC7801
     S:V_128-> V_128  S(a)=(a_15||...||a_0)=pi(a_15)||...||pi(a_0), where
       a_15||...||a_0 belongs to V_128, a_i belongs to V_8, i=0,1,...,15
-    :param a: Takes an 128-bit integer as input
+    :param xor_result: Takes an 128-bit integer as input stemming from the plaintext XORed with a round key
     :return: Returns an 128-bit integer
     """
     output: int = 0
     for i in reversed(range(16)):
-        output <<= 8                            # Expose the 8 most significant bits of a
-        output ^= pi[(a >> (8 * i)) & 0xff]     # Grab the 8 most significant bits of a. Used as input for the pi
-    return output                               # Shifts output over by 8 positions and ajoin the next value of pi
+        output <<= 8                                  # Expose the 8 most significant bits of a
+        output ^= pi[(xor_result >> (8 * i)) & 0xff]  # Grab the 8 most significant bits of a. Used as input for the pi
+    return output                                     # Shifts output over by 8 positions and ajoin the next value of pi
 
 
-def substitution_inverse(a: int) -> int:
+def substitution_inverse(inv_trans_result: int) -> int:
     """
     Defining the inverse substitution as defined in RFC7801
     S^(-1):V_128-> V_128  S^(-1)(a_15||...||a_0)=pi^(-1) (a_15)||...||pi^(-1)(a_0), where
       a_15||...||a_0 belongs to V_128, a_i belongs to V_8, i=0,1,...,15
-    :param a: Takes an 128-bit integer as input
+    :param inv_trans_result: Takes an 128-bit integer as input stemming from the return value of the
+    inverse_transformation_L() function
     :return: Returns an 128-bit integer
     """
     output: int = 0
     for i in reversed(range(16)):
-        output <<= 8                                # Same as for "substitution", but uses pi_inverse instead of pi
-        output ^= pi_inverse[(a >> (8 * i)) & 0xff]
+        output <<= 8    # Same as for "substitution", but uses pi_inverse instead of pi
+        output ^= pi_inverse[(inv_trans_result >> (8 * i)) & 0xff]
     return output
 
 
-def binary_polynomial_multiplication(x: int, y: int) -> int:
+def polynomial_binary_multiplication(vector_8b: int, bijective_constant: int) -> int:
     """
     Defining a part (1/3) of the ring residue modulo calculation
-    :param x: Takes a non-negative integer
-    :param y: Takes a non-negative integer
-    :return: Retruns a binary representation of the polynomial
+    :param vector_8b: Takes a non-negative integer
+    :param bijective_constant: Takes a non-negative integer
+    :return: Returns a binary representation of the polynomial
     """
-    if x == 0 or y == 0:
+    if vector_8b == 0 or bijective_constant == 0:
         return 0
-    z: int = 0
-    while x != 0:
-        if x & 1 == 1:
-            z ^= y
-        y <<= 1
-        x >>= 1
-    return z
+    output: int = 0
+    while vector_8b != 0:
+        if vector_8b & 1 == 1:
+            output ^= bijective_constant
+        bijective_constant <<= 1
+        vector_8b >>= 1
+    return output
 
 
 def number_of_bits_in_polynomial(binary_polynomial: int) -> int:
@@ -186,24 +193,25 @@ def number_of_bits_in_polynomial(binary_polynomial: int) -> int:
     return number_of_bits
 
 
-def polynomial_integer_modulo(x: int, p: int) -> int:
+def polynomial_integer_modulo(multiplied_polynomial: int, polynomial_binary: int) -> int:
     """
     Defining a part (3/3) of the ring residue modulo calculation
     Z_(2^n) ring of residues modulo 2^n
-    :param x: Takes a non-negative integer as input
-    :param p: Takes a non-negative integer as input
+    :param multiplied_polynomial: Takes a non-negative integer as input resulting from a
+    binary polynomial multiplication
+    :param polynomial_binary: Takes a non-negative integer as input representing the polynomial of the field
     :return: Returns the modulo value of the polynomials
     """
-    number_of_bits_p: int = number_of_bits_in_polynomial(p)
+    number_of_bits_p: int = number_of_bits_in_polynomial(polynomial_binary)
     while True:
-        number_of_bits_x = number_of_bits_in_polynomial(x)
+        number_of_bits_x = number_of_bits_in_polynomial(multiplied_polynomial)
         if number_of_bits_x < number_of_bits_p:
-            return x
-        m_shift: int = p << (number_of_bits_x - number_of_bits_p)
-        x ^= m_shift
+            return multiplied_polynomial
+        m_shift: int = polynomial_binary << (number_of_bits_x - number_of_bits_p)
+        multiplied_polynomial ^= m_shift
 
 
-def delta_bijective_mapping(x: int, y: int) -> int:
+def delta_bijective_mapping(vector_8b: int, bijective_constant: int) -> int:
     """
     Defining the bijective mapping as described in RFC7801
     delta: V_8 -> Q  bijective mapping that maps a binary string from V_8
@@ -211,16 +219,18 @@ def delta_bijective_mapping(x: int, y: int) -> int:
            z_7||...||z_1||z_0, where z_i in {0, 1}, i = 0, ..., 7,
            corresponds to the element z_0+(z_1*theta)+...+(z_7*theta^7)
            belonging to Z
-    :param x: Takes an 8-bit integer as input
-    :param y: Takes an 8-bit integer as input
+    :param vector_8b: Takes an 8-bit integer as input resulting from one of the 16 8-bits values
+    from the linear_transformation function
+    :param bijective_constant: Takes an 8-bit integer as input from the constant list in the
+    linear_transformation function
     :return: Returns an integer value as result of the bijective mapping
     """
-    multiplied_polynomial: int = binary_polynomial_multiplication(x, y)
-    p = int('111000011', 2)     # p(x)=x^8+x^7+x^6+x+1
-    return polynomial_integer_modulo(multiplied_polynomial, p)
+    multiplied_polynomial: int = polynomial_binary_multiplication(vector_8b, bijective_constant)
+    polynomial_binary = int('111000011', 2)     # p(x)=x^8+x^7+x^6+x+1
+    return polynomial_integer_modulo(multiplied_polynomial, polynomial_binary)
 
 
-def linear_transformation(x: int) -> int:
+def linear_transformation(vector: int) -> int:
     """
     Defining the linear transformation as described in RFC7801
     l: (V_8)^16 -> V_8: l(a_15,...,a_0) = nabla(148*delta(a_15) + 32*delta(a_15) +
@@ -228,69 +238,69 @@ def linear_transformation(x: int) -> int:
      192*delta(a_10) + 1*delta(a_9) + 251*delta(a_8) + 1*delta(a_7) +
      192*delta(a_6) + 194*delta(a_5) + 16*delta(a_4) + 133*delta(a_3) +
      32*delta(a_2) + 148*delta(a_1) +1*delta(a_0))
-    :param x: The input is a vector of 16 8-bits values (128-bits)
+    :param vector: The input is a vector of 16 8-bits values (128-bits)
     :return: Returns an 8-bit integer value
     """
     constants: List[int] = [148, 32, 133, 16, 194, 192, 1, 251, 1, 192, 194, 16, 133, 32, 148, 1]
     output: int = 0
-    while x != 0:
-        output ^= delta_bijective_mapping(x & 0xff, constants.pop())
-        x >>= 8
+    while vector != 0:
+        output ^= delta_bijective_mapping(vector & 0xff, constants.pop())
+        vector >>= 8
     return output
 
 
-def transformation_R(x: int) -> int:
+def transformation_R(sub_result: int) -> int:
     """
     Defining the transformation R as described in RFC7801
      R:V_128-> V_128  R(a_15||...||a_0)=l(a_15,...,a_0)||a_15||...||a_1,
       where a_15||...||a_0 belongs to V_128, a_i belongs to V_8,
       i=0,1,...,15
-    :param x: Takes an 128-bit integer value
+    :param sub_result: Takes 128-bit integer as input stemming from the return value of the substitution function
     :return: Returns an 128-bit integer value
     """
-    a: int = linear_transformation(x)
-    return (a << 8 * 15) ^ (x >> 8)
+    byte_transformed: int = linear_transformation(sub_result)
+    return (byte_transformed << 8 * 15) ^ (sub_result >> 8)
 
 
-def inverse_transformation_R(x: int) -> int:
+def inverse_transformation_R(xor_result: int) -> int:
     """
     Defining the inverse transformation R as described in RFC7801
     R^(-1):V_128-> V_128  the inverse transformation of R, which may be
       calculated, for example, as follows: R^(-1)(a_15||...||a_0)=a_14||
       a_13||...||a_0||l(a_14,a_13,...,a_0,a_15), where a_15||...||a_0
       belongs to V_128, a_i belongs to V_8, i=0,1,...,15
-    :param x: Takes an 128-bit integer value
+    :param xor_result: Takes an 128-bit integer value resulting from the ciphertext XORed with a round key
     :return: Returns an 128-bit integer value
     """
-    a: int = x >> 8 * 15
-    x: int = x << 8 & (2 ** 128 - 1)
-    b: int = linear_transformation(x ^ a)
-    return x ^ b
+    byte_i: int = xor_result >> 8 * 15
+    xor_result: int = xor_result << 8 & (2 ** 128 - 1)
+    byte_transformed: int = linear_transformation(xor_result ^ byte_i)
+    return xor_result ^ byte_transformed
 
 
-def transformation_L(x: int) -> int:
+def transformation_L(sub_result: int) -> int:
     """
     Defining the transformation L as described in RFC7801
     L:V_128-> V_128  L(a)=R^(16)(a), where a belongs to V_128
-    :param x: Takes 128-bit integer as input
+    :param sub_result: Takes 128-bit integer as input stemming from the return value of the substitution function
     :return: Returns 128-bit integer
     """
     for _ in range(16):
-        x = transformation_R(x)
-    return x
+        sub_result = transformation_R(sub_result)
+    return sub_result
 
 
-def inverse_transformation_L(x: int) -> int:
+def inverse_transformation_L(xor_result: int) -> int:
     """
     Defining the inverse transformation L as described in RFC7801
     L^(-1):V_128-> V_128  L^(-1)(a)=(R^(-1))(16)(a), where a belongs to
       V_128
-    :param x: Takes 128-bit integer as input
+    :param xor_result: Takes 128-bit integer as input resulting from the ciphertext XORed with a round key
     :return: Returns 128-bit integer
     """
     for _ in range(16):
-        x = inverse_transformation_R(x)
-    return x
+        xor_result = inverse_transformation_R(xor_result)
+    return xor_result
 
 
 def key_schedule(key: int) -> List:
@@ -319,8 +329,9 @@ def key_schedule(key: int) -> List:
     round_keys.append(round_key_2)
     for i in range(4):
         for j in range(8):
-            c: int = transformation_L(8 * i + j + 1)  # The line below: F[k](a_1,a_0)=(LSX[k](a_1)(xor)a_0,a_1)
-            (round_key_1, round_key_2) = (transformation_L(substitution(round_key_1 ^ c)) ^ round_key_2, round_key_1)
+            transform_result: int = transformation_L(8 * i + j + 1)     # F[k](a_1,a_0)=(LSX[k](a_1)(xor)a_0,a_1)
+            (round_key_1, round_key_2) = (transformation_L(
+                substitution(round_key_1 ^ transform_result)) ^ round_key_2, round_key_1)
         round_keys.append(round_key_1)
         round_keys.append(round_key_2)
     return round_keys
@@ -368,43 +379,44 @@ def test_code(key_value: str, plain_text: str, cipher_text: str):
     """
     # Test subsection 5.4 in RFC7801
     key = int(key_value, 16)
-    print('=======================================')
+    print('========================================')
     print('Key schedule test results:')
     i = 0
     for round_key in key_schedule(key):
         i += 1
         print('K_' + str(i) + ' = ' + hex(round_key))
     print('\nExpected results:\n'
-          'K_1 = 8899aabbccddeeff0011223344556677\n'
-          'K_2 = fedcba98765432100123456789abcdef\n'
-          'K_3 = db31485315694343228d6aef8cc78c44\n'
-          'K_4 = 3d4553d8e9cfec6815ebadc40a9ffd04\n'
-          'K_5 = 57646468c44a5e28d3e59246f429f1ac\n'
-          'K_6 = bd079435165c6432b532e82834da581b\n'
-          'K_7 = 51e640757e8745de705727265a0098b1\n'
-          'K_8 = 5a7925017b9fdd3ed72a91a22286f984\n'
-          'K_9 = bb44e25378c73123a5f32f73cdb6e517\n'
-          'K_10 = 72e9dd7416bcf45b755dbaa88e4a4043\n')
+          'K_1 = 0x8899aabbccddeeff0011223344556677\n'
+          'K_2 = 0xfedcba98765432100123456789abcdef\n'
+          'K_3 = 0xdb31485315694343228d6aef8cc78c44\n'
+          'K_4 = 0x3d4553d8e9cfec6815ebadc40a9ffd04\n'
+          'K_5 = 0x57646468c44a5e28d3e59246f429f1ac\n'
+          'K_6 = 0xbd079435165c6432b532e82834da581b\n'
+          'K_7 = 0x51e640757e8745de705727265a0098b1\n'
+          'K_8 = 0x5a7925017b9fdd3ed72a91a22286f984\n'
+          'K_9 = 0xbb44e25378c73123a5f32f73cdb6e517\n'
+          'K_10 = 0x72e9dd7416bcf45b755dbaa88e4a4043\n')
 
     # Test subsection 5.5 in RFC7801
-    a = int(plain_text, 16)
-    b = encipherment(a, key)
-    print('=======================================')
+    plaintext = int(plain_text, 16)
+    ciphertext = encipherment(plaintext, key)
+    print('========================================')
     print('Encipherment test result:')
-    print('b = ' + hex(b))
+    print('b = ' + hex(ciphertext))
     print('\nExpected results:\n'
-          'b = 7f679d90bebc24305a468d42b9d4edcd\n')
+          'b = 0x7f679d90bebc24305a468d42b9d4edcd\n')
 
     # Test subsection 5.6 in RFC7801
-    b = int(cipher_text, 16)
-    a = decipherment(b, key)
-    print('=======================================')
+    ciphertext = int(cipher_text, 16)
+    plaintext = decipherment(ciphertext, key)
+    print('========================================')
     print('Decipherment test result:')
-    print('b = ' + hex(a))
+    print('b = ' + hex(plaintext))
     print('\nExpected results:\n'
-          'a = 1122334455667700ffeeddccbbaa9988')
+          'a = 0x1122334455667700ffeeddccbbaa9988')
 
- 
-# Supply key value, plaintext value, and ciphertext value as string
-test_code('8899aabbccddeeff0011223344556677fedcba98765432100123456789abcdef', '1122334455667700ffeeddccbbaa9988',
-          '7f679d90bebc24305a468d42b9d4edcd')
+
+if __name__ == '__main__':
+    # Supply key value, plaintext value, and ciphertext value as string
+    test_code('8899aabbccddeeff0011223344556677fedcba98765432100123456789abcdef', '1122334455667700ffeeddccbbaa9988',
+              '7f679d90bebc24305a468d42b9d4edcd')
