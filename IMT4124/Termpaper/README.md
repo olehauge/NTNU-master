@@ -31,4 +31,5 @@ submission is anonymous. The deadline is April 29th 2022 at 23.59, Oslo time
 [1] A. Biryukov, L. Perrin, and A. Udovenko, Reverse-engineering of the S-box of
 Stribog, Kuznyechik and STRIBOBr1, in Proceedings of Eurocrypt 2016 M. Fischlin, J.-S. Coron (eds.), Part I, Lecture Notes in Computer Science, LNCS, Vol.
 9665, pp. 372–402.
+
 [2] https://datatracker.ietf.org/doc/html/rfc7801.html
