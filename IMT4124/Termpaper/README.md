@@ -9,19 +9,21 @@ same time reduces the cryptographic strength of the cipher. The detailed descrip
 the Grasshopper block cipher is available in [2].
 
 ## 2 The task for the student
-### 1. Read the description of the Grasshopper cipher [2]. Draw the schematic of the
-cipher. (10 points)
-### 2. Implement the cipher in your favorite programminglanguage (for example c/c++,
-Java, or Python). Check the obtained output from the cipher against the values
+1. Read the description of the Grasshopper cipher [2]. Draw the schematic of the cipher. (10 points)
+2. 
+3. Implement the cipher in your favorite programminglanguage (for example c/c++, Java, or Python). Check the obtained output from the cipher against the values
 given in [2] (subsections 5.4, 5.5, and 5.6). (30 points)
-### 3. Read carefully the analysis of the S-box of Grasshopper given in [1]. Write
+
+3. Read carefully the analysis of the S-box of Grasshopper given in [1]. Write
 a report about the analysis (max. 8 A4 pages). From the report, it should be
 clear that you understand this analysis. Concentrate on the consequences for
 Grasshopper (Kuznyechik), ignore Stribog and STRIBOBr1 that share the same
 S-box. (30 points)
-### 4. Modify the implementation of the Grasshopper cipher by replacing the S-box
+
+4. Modify the implementation of the Grasshopper cipher by replacing the S-box
 given with the table in [2] by the decomposition of this S-box obtained in [1].
 Check the new implementation in the same way as in Task 2. (30 points)
+
 ## 3 Handing in
 This is individual work, do not collaborate with others. Put everything you produce in
 a single ZIP file Grasshopper.zip. The handing in technology is Inspera, and the
