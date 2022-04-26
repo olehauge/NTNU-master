@@ -3,7 +3,7 @@
 The Grasshopper (Kuznyechik) block cipher (GOST R34.12-2015)is the Russian block
 cipher standard used by the government (non-military) institutions of that country. It
 is also known by the name RFC7801. The goal for the designers was to replace the
-old Russian standard block cipher (GOST 29147–89) known to be broken by several authors. The design follows the modern principles. It is a 9-round SubstitutionPermutation Network (SPN) with the block length of 128 bits and a 256-bit key. However, the criteria for choosing exactly the S-box used in this cipher have not been published. Biryukov et al. [1] published an analysis of this S-box and discovered its hidden
+old Russian standard block cipher (GOST 29147–89) known to be broken by several authors. The design follows the modern principles. It is a 9-round Substitution Permutation Network (SPN) with the block length of 128 bits and a 256-bit key. However, the criteria for choosing exactly the S-box used in this cipher have not been published. Biryukov et al. [1] published an analysis of this S-box and discovered its hidden
 structure that offers possibilities for efficient implementation of the cipher, but at the
 same time reduces the cryptographic strength of the cipher. The detailed description of
 the Grasshopper block cipher is available in [2].
