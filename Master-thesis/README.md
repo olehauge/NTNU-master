@@ -10,3 +10,4 @@ This repository will contain the work conducted during the writing of the master
 
 **How to Conduct Effecitve I2 Operations:** What should a good management framework look like for effective I2 operations?
 
+**The Downside to Big Data:** How big data can be abused for targeting. 
