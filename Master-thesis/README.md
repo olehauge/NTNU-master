@@ -6,3 +6,4 @@ This repository will contain the work conducted during the writing of the master
 
 **Identifying I2 operations:** A paper looking into what behavioral parameters can be collected from SOME to detect influence/interference operations. What data points are needed to understand a persons behaviors and how can they be used to change it (Cambridge Analytica used the Big Five). 
 
+**Privacy Settings of Social Media Accounts:**
