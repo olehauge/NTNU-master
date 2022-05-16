@@ -15,3 +15,5 @@ This repository will contain the work conducted during the writing of the master
 **Target Audience Methodology for SOME Marketing:** How SOME can be used to TA marketing. 
 
 **Coordinated Inauthentic Behavior:** [EU Disinfo Labs](https://weverify.eu/blog/coordinated-inauthentic-behaviour-detection-tree/)
+
+**Potential PhD -** [Foreign influence operations in the cyber age](https://ora.ox.ac.uk/objects/uuid:0c7513fa-b71c-4c15-9bd3-3c49858972c3)
