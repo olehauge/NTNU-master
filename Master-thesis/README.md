@@ -20,3 +20,5 @@ This repository will contain the work conducted during the writing of the master
 
 ## Possible Prices
 **Norsk Regnesentrals pris:** En pris for beste masteroppgave innen matematikk og IKT består av et diplom og 40 000 kr. Prisen deles ut årlig uavhengig av hverandre på Universitetet i Oslo og NTNU. [https://www.ntnu.no/nrprisen](https://www.ntnu.no/nrprisen)
+
+**NFEA Pris for bestemaster:** NFEA deler hvert år ut pris for beste master eller bacheloroppgave. Prisen består av kr 10.000,- og et diplom. [https://nfea.no/utdanning/pris-beste-master-bacheloroppgave/](https://nfea.no/utdanning/pris-beste-master-bacheloroppgave/)
