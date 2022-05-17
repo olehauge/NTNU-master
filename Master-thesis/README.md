@@ -4,7 +4,9 @@ This repository will contain the work conducted during the writing of the master
 ## Possible Partners
 **FFI:** Det å ha kontakt med studenter er viktig for FFI. Hvert år veileder vi flere titalls studenter på alle nivåer. Og vi har mange spennende oppgaver som venter på å bli løst https://www.ffi.no/jobb-og-karriere/student/studentoppgaver.
 
+**Mnemonic:** Threat intelligence, Red Team, TIBER, Governance, Risk & Compliance, Enterprice Security Architecture
 
+**Telenor:** 
 
 ## Research Ideas
 ### Influence/Interference Operations
@@ -24,7 +26,11 @@ This repository will contain the work conducted during the writing of the master
 
 **Potential PhD -** [Foreign influence operations in the cyber age](https://ora.ox.ac.uk/objects/uuid:0c7513fa-b71c-4c15-9bd3-3c49858972c3)
 
+**Data Possibilities:** A comprehensive look at what data can be extracted from SOME sources, with what tools, limitations (legal or technical), and how it can be used to create TA profiles for I2 operations.
+
 ### Management
+### Influence/Interference Operations
+**Framework:** A framework for effective management, data collection, and prioritization of budget limitations. 
 
 ## Possible Prices
 **Norsk Regnesentrals pris:** En pris for beste masteroppgave innen matematikk og IKT består av et diplom og 40 000 kr. Prisen deles ut årlig uavhengig av hverandre på Universitetet i Oslo og NTNU. [https://www.ntnu.no/nrprisen](https://www.ntnu.no/nrprisen)
