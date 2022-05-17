@@ -1,6 +1,11 @@
 # Mater Thesis NTNU - Influence/Interference Operations
 This repository will contain the work conducted during the writing of the master thesis at NTNU. 
 
+## Possible Partners
+**FFI:** Det å ha kontakt med studenter er viktig for FFI. Hvert år veileder vi flere titalls studenter på alle nivåer. Og vi har mange spennende oppgaver som venter på å bli løst https://www.ffi.no/jobb-og-karriere/student/studentoppgaver.
+
+
+
 ## Research Ideas
 **A heatmap of Norway used to detect interference opeations:** It is porven (study of MIT) that fake news spreads up to 6 times faster than factual news. We might use this to see where and when fake news are spreading geographically. MIT are working on an AI for identifying missinformation networks. Perhaps this could be used as the backbone? 
 
