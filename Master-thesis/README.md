@@ -17,3 +17,6 @@ This repository will contain the work conducted during the writing of the master
 **Coordinated Inauthentic Behavior:** [EU Disinfo Labs](https://weverify.eu/blog/coordinated-inauthentic-behaviour-detection-tree/)
 
 **Potential PhD -** [Foreign influence operations in the cyber age](https://ora.ox.ac.uk/objects/uuid:0c7513fa-b71c-4c15-9bd3-3c49858972c3)
+
+## Possible Prices
+**Norsk Regnesentrals pris:** En pris for beste masteroppgave innen matematikk og IKT består av et diplom og 40 000 kr. Prisen deles ut årlig uavhengig av hverandre på Universitetet i Oslo og NTNU. [https://www.ntnu.no/nrprisen](https://www.ntnu.no/nrprisen)
