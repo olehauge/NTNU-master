@@ -26,7 +26,7 @@ This repository contains the work conducted during my master of information secu
 - [ ] IMT4203: Critical Infrastructure - Security
 
 ### Spring 2023 (22,5 stp)
-- [ ] XXXYYYY: Experts in Teamwork - Potential influence operations in social media?
+- [ ] XXXYYYY: Experts in Teamwork
 - [ ] IMT4205: Research Project Planning
 - [ ] IMT4127: Security Management Metrics 
 
