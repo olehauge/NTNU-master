@@ -67,3 +67,6 @@ Link to NATO related cell: [stratcomcoe.org](https://stratcomcoe.org/publication
 [Apache Lucene](https://lucene.apache.org/)
 
 [Neo4j](https://neo4j.com/cloud/neo4j-aura/?utm_program=emea-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=emea-search-auradb-free&utm_adgroup=auradb-free-keywords&utm_content=auradb-free-keywords&utm_term=neo4j&utm_placement=&utm_keyword=neo4j&utm_network=g&gclid=CjwKCAjwx46TBhBhEiwArA_DjDFJwntgEPrWLtNFN06RkuOawn1aWM22mrpIj74HQYM9lIhWrZ4b-xoCcaAQAvD_BwE)
+
+## Links - Management and Investment in InfoSec
+[Master Thesis: A Visual Tool for the Analysis of Cybersecurity Investments](https://files.ifi.uzh.ch/CSG/staff/franco/extern/theses/BA-C-Inan.pdf)
