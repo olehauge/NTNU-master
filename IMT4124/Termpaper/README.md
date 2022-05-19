@@ -10,8 +10,8 @@ the Grasshopper block cipher is available in [2].
 
 ## 2 The task for the student
 1. Read the description of the Grasshopper cipher [2]. Draw the schematic of the cipher. (10 points)
-2. 
-3. Implement the cipher in your favorite programminglanguage (for example c/c++, Java, or Python). Check the obtained output from the cipher against the values
+
+2. Implement the cipher in your favorite programminglanguage (for example c/c++, Java, or Python). Check the obtained output from the cipher against the values
 given in [2] (subsections 5.4, 5.5, and 5.6). (30 points)
 
 3. Read carefully the analysis of the S-box of Grasshopper given in [1]. Write
