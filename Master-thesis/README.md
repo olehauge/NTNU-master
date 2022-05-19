@@ -29,7 +29,8 @@ This repository will contain the work conducted during the writing of the master
 **Data Possibilities:** A comprehensive look at what data can be extracted from SOME sources, with what tools, limitations (legal or technical), and how it can be used to create TA profiles for I2 operations.
 
 ### Management
-### Influence/Interference Operations
+**Cyber Security Investmnets:**
+
 **Framework:** A framework for effective management, data collection, and prioritization of budget limitations. 
 
 ## Possible Prices
