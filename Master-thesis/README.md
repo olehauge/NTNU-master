@@ -31,6 +31,8 @@ This repository will contain the work conducted during the writing of the master
 ### Management
 **Cyber Security Investmnets:**
 
+**Conveying Cyber Security to Stackeholders and C-level Executives:**
+
 **Framework:** A framework for effective management, data collection, and prioritization of budget limitations. 
 
 ## Possible Prices
