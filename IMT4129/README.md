@@ -1,6 +1,6 @@
 # Risk Management for Information Security
 This repository covers my work conducted in the IMT4129 course.
-- Term paper (TBD)
+- Term paper (C)
 
 ## Course content
 - Relationship to Management
