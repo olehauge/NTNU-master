@@ -16,9 +16,9 @@ This repository contains the work conducted during my master of information secu
 - [X] IMT4114: Introduction to Digital Forensics (A)
 
 ### Spring 2022 (22,5 stp)
-- [ ] IMT4124: Cryptology (C)
-- [ ] IMT4129: Risk Management for Information Security (C)
-- [ ] IMT4116: Reverse Engineering and Malware Analysis (TBD)
+- [X] IMT4124: Cryptology (C)
+- [X] IMT4129: Risk Management for Information Security (C)
+- [X] IMT4116: Reverse Engineering and Malware Analysis (TBD)
 
 ### Autmun 2022 (22,5 stp)
 - [ ] TTM4165: Digital Economy 
