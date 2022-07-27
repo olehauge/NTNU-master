@@ -28,10 +28,7 @@ This repository contains the work conducted during my master of information secu
 ### Spring 2023 (15/22,5 stp)
 - [ ] XXXYYYY: Experts in Teamwork (O)(TBD)
 - [ ] IMT4205: Research Project Planning (O)(TBD)
-- [ ] IMT4127: Security Management Metrics 
-```diff 
-- (might skip due to work)
-```
+- [ ] IMT4127: Security Management Metrics ```diff - (might skip due to work)```
 
 ### Autumn 2023 - Spring 2024 (30/45 stp)
 - [ ] IMT4213: Cyber Tactics (might skip due to work)
