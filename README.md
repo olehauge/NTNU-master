@@ -2,38 +2,38 @@
 This repository contains the work conducted during my master of information security (MIS) at NTNU, where I focus on the cinformation security technology and management tracks.
 ## Courses
 ### Autumn 2020 (15 stp)
-- [X] IMT4113: Introduction to Information Security Management (B)
-- [X] IMT4115: Introduction to Cyber and Information Security Technology (B)
+- [X] IMT4113: Introduction to Information Security Management (O)(B)
+- [X] IMT4115: Introduction to Cyber and Information Security Technology (O)(B)
 
 ### Spring 2021 (15 stp)
-- [X] IMT4126: Biometrics (B)
-- [X] IMT4125: Network Security (B)
+- [X] IMT4126: Biometrics (O)(B)
+- [X] IMT4125: Network Security (O)(B)
 
 
 ### Autumn 2021 (22,5 stp)
-- [X] IMT4123: System Security (B)
-- [X] IMT4110: Scientific Methodology (B)
-- [X] IMT4114: Introduction to Digital Forensics (A)
+- [X] IMT4123: System Security (O)(B)
+- [X] IMT4110: Scientific Methodology (O)(B)
+- [X] IMT4114: Introduction to Digital Forensics (O)(A)
 
 ### Spring 2022 (22,5 stp)
-- [X] IMT4124: Cryptology (C)
-- [X] IMT4129: Risk Management for Information Security (C)
-- [X] IMT4116: Reverse Engineering and Malware Analysis (B)
+- [X] IMT4124: Cryptology (O)(C)
+- [X] IMT4129: Risk Management for Information Security (V)(C)
+- [X] IMT4116: Reverse Engineering and Malware Analysis (V)(B)
 
-### Autmun 2022 (22,5 stp)
-- [ ] TTM4165: Digital Economy 
-- [ ] IMT4217: Introduction to Data Privacy
-- [ ] IMT4203: Critical Infrastructure - Security
+### Autmun 2022 (7,5/22,5 stp)
+- [ ] TTM4165: Digital Economy (might skip due to work)
+- [ ] IMT4217: Introduction to Data Privacy (might skip due to work)
+- [ ] IMT4203: Critical Infrastructure - Security (O)(TBD)
 
-### Spring 2023 (22,5 stp)
-- [ ] XXXYYYY: Experts in Teamwork
-- [ ] IMT4205: Research Project Planning
-- [ ] IMT4127: Security Management Metrics 
+### Spring 2023 (15/22,5 stp)
+- [ ] XXXYYYY: Experts in Teamwork (O)(TBD)
+- [ ] IMT4205: Research Project Planning (O)(TBD)
+- [ ] IMT4127: Security Management Metrics (might skip due to work)
 
-### Autumn 2023 - Spring 2024 (45 stp)
-- [ ] IMT4213: Cyber Tactics
-- [ ] IMT4214: Cyber Intelligence
-- [ ] MIS4900: Master's Thesis
+### Autumn 2023 - Spring 2024 (30/45 stp)
+- [ ] IMT4213: Cyber Tactics (might skip due to work)
+- [ ] IMT4214: Cyber Intelligence (might skip due to work)
+- [ ] MIS4900: Master's Thesis (O)(TBD)
 
 
 Total stp: 160 stp | norm: 120 stp
